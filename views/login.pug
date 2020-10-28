@@ -1,0 +1,11 @@
+extends ./layout.pug
+block contenido
+    form(action="/users",method="POST")
+    div(class="form-group")
+        label(for="email") Email
+        input(type="text", name="email", placeholder="Email" class="form-control")
+    div(class="form-group")
+        label(for="password") Password
+        input(type="password", name="password", placeholder="Password" class="form-control")
+    div
+        input(type="submit" value="Iniciar Sesion" class="btn btn-info")
