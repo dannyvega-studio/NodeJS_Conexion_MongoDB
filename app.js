@@ -1,22 +1,22 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var app = express();
-const mongoose = require("mongoose"); 
+var mongoose = require("mongoose"); 
 var Schema = mongoose.Schema;
 
-    mongoose.set('useNewUrlParser', true);
-    mongoose.set('useFindAndModify', false);
-    mongoose.set('useCreateIndex', true);
-    mongoose.set('useUnifiedTopology', true);
-    
-    mongoose.connect("mongodb://localhost/test");
-
-//mongoose.connect("mongodb://127.0.0.1:27017/test", { useNewUrlParser: true, useUnifiedTopology: true}).then(res => console.log('Conexion a BD exitosa')); //conexion a base de datos
+mongoose.connect("mongodb://127.0.0.1:27017/test", 
+{
+    useNewUrlParser: true, 
+    useFindAndModify: false, 
+    useCreateIndex: true, 
+    useUnifiedTopology: true
+}).then(db => console.log("La Conexion se ha realizado Correctamente!!"))
+.catch(err => console.log("error:", err))
 
 //Creacion de la Base de Datos en un JSON
 var userSchemaJSON = {
-    email: String,
-    password: String
+    email:String,
+    password:String
 };
 
 //modelos
